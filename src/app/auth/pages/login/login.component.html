@@ -1,0 +1,22 @@
+<form class="custom-form" method="post">
+  <img src="assets/img/escudoBarcelona.png" width="30%" alt="">
+  <h1 class="mat-subheading-2">Bienvenido a la plataforma</h1>
+
+  <!-- EMAIL -->
+  <mat-form-field appearance="fill">
+    <mat-label>Correo</mat-label>
+    <input type="email" matInput placeholder="" name="email" [(ngModel)]="email" required>
+    <mat-icon matSuffix color="primary">mail</mat-icon>
+  </mat-form-field>
+
+  <!-- PASSWORD -->
+  <mat-form-field appearance="fill">
+    <mat-label>Contraseña</mat-label>
+    <input type="password" matInput placeholder="" name="password" [(ngModel)]="password" required>
+    <mat-icon matSuffix color="primary">lock</mat-icon>
+  </mat-form-field>
+
+  <!-- BUTTONS -->
+  <button mat-raised-button color="primary" type="submit" (click)="login()">Log in</button>
+  <button type="button" mat-button (click)="login()">Recuperar contraseña</button>
+</form>

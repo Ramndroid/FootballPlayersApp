@@ -1,0 +1,65 @@
+<h1>{{ player.id ? 'Editar' : 'Nuevo' }}</h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+    <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+
+            <!-- NOMBRE -->
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" required [(ngModel)]="player.first_name">
+            </mat-form-field>
+
+            <!-- APELLIDO -->
+            <mat-form-field fxFlex="100">
+                <mat-label>Apellido
+                </mat-label>
+                <input matInput type="text" required [(ngModel)]="player.last_name">
+            </mat-form-field>
+        </div>
+
+        <!-- DORSAL -->
+        <mat-form-field>
+            <mat-label>Dorsal</mat-label>
+            <input matInput type="text" required [(ngModel)]="player.number">
+        </mat-form-field>
+
+        <!-- FECHA DE NACIMIENTO -->
+        <mat-form-field>
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput type="text" required [(ngModel)]="player.birth">
+        </mat-form-field>
+
+        <!-- URL FOTO -->
+        <mat-form-field>
+            <mat-label>Foto URL</mat-label>
+            <input matInput type="url" required [(ngModel)]="player.image">
+        </mat-form-field>
+
+        <br>
+
+        <div fxLayout>
+            <!-- ACTUALIZAR / CREAR -->
+            <button mat-raised-button color="primary" (click)="save()">
+                <mat-icon>edit</mat-icon>
+                {{ player.id ? 'Actualizar' : 'Crear'}}
+            </button>
+
+            <span class="spacer"></span>
+
+            <!-- ELIMINAR -->
+            <button *ngIf="player.id" mat-raised-button color="warn" (click)="deletePlayer()">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+    </div>
+
+    <div fxFlex="50">
+        <!-- IMAGEN -->
+        <img [src]="player | image">
+    </div>
+</div>

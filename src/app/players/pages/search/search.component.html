@@ -1,0 +1,33 @@
+<div fxLayout="column">
+    <div>
+        <h1>Buscador de jugadores</h1>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div fxLayout="column">
+        <mat-form-field>
+            <input type="text" placeholder="Buscar..." aria-label="Number" matInput [(ngModel)]="wordToSearch"
+                [matAutocomplete]="auto" (input)="searching()">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectedOption($event)">
+                <mat-option *ngFor="let player of players" [value]="player">
+                    {{ player.first_name }} {{ player.last_name }}
+                </mat-option>
+
+                <mat-option value="" *ngIf="players.length === 0 && wordToSearch.trim().length > 0">
+                    No se encontró ningún elemento coincidente
+                </mat-option>
+            </mat-autocomplete>
+
+            <span></span>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="selectedPlayer">
+        
+        <!-- APP-PLAYER-CARD -->
+        <app-player-card [player]="selectedPlayer"></app-player-card>
+        <!-- END APP-PLAYER-CARD -->
+
+    </div>
+
+</div>

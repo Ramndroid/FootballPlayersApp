@@ -1,0 +1,56 @@
+<h1>Players APP</h1>
+
+<mat-sidenav-container fullscreen>
+
+    <!-- SIDENAV -->
+    <mat-sidenav #sidenav mode="push">
+
+        <mat-toolbar color="primary">
+            <span>Menú</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a routerLink="./list" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de jugadores</span>
+            </a>
+
+            <a routerLink="./add" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Añadir jugador</span>
+            </a>
+
+            <a routerLink="./search" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar jugador</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <!-- TOOLBAR -->
+    <mat-toolbar>
+
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <img src="../../../../assets/img/escudoBarcelona.png">
+
+        <span class="spacer"></span>
+
+        <span>{{ auth.user }}</span>
+
+        <button mat-button (click)="logout()">Logout</button>
+
+    </mat-toolbar>
+
+    <!-- ROUTER OUTLET -->
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
